@@ -46,6 +46,8 @@ In addition to augmentation, compute_class_weight('balanced') was applied to the
 
 ### 5. Model Architecture of a Custom CNN
 
+![architecture](/assets/nnarchitecture.png)
+
 ### 6. Transfer Learning Models
 
 Two pre-trained architectures were fine-tuned for comparison. Both used ImageNet weights with frozen base layers, a Global Average Pooling layer, and the same MLP head as the custom CNN. The base layers were kept frozen throughout training.
@@ -57,9 +59,26 @@ Input images were replicated from 1 to 3 channels and preprocessed according to 
 
 ### 7. Evaluation 
 
+Explainable AI was the evaluation method used to determine the model's effectiveness in detecting faults. Specifically, SHAP values ​​were employed to identify the regions and pixels most significant to the model's interpretation of a module as either "normal" or "defective."
+
+- **Pixel Contribution**
+
+![contribuicaodospixels](/assets/contribuicaodospixels.png)
+
+- **SHAP values**
+
+![SHAPvalues](/assets/SHAPvalues.png)
+
 ---
 
 ## Conclusions 
+
+In conclusion, the developed CNN model was able to identify some defective modules; however, it struggled to distinguish certain modules that clearly exhibited hotspots.
+
+Although the developed CNN model performed well compared to the other pre-trained models analyzed, the training process relied on only two datasets imported from Kaggle. Consequently, further adjustments are required to improve the model's performance in detecting defective modules. The reasons for this are:
+
+- The dataset contains a limited number of images.
+- The developed CNN model is not yet robust enough to detect more subtle or faint faults.
 
 ---
 
